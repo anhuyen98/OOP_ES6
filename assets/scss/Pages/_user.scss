@@ -1,0 +1,58 @@
+// Table 
+table {
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px $clr-gray300;
+    background-color: white;
+    text-align: left;
+  
+    thead {
+      box-shadow: 0 5px 10px $clr-gray300;
+    }
+  
+    th {
+      padding: 1rem 1rem;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+  
+    td {
+      padding: 1rem 1rem;
+    }
+  
+    a {
+      text-decoration: none;
+      color: $clr-link;
+    }
+  
+    .status {
+      border-radius: $radius;
+      background-color: red;
+      padding: 0.2rem 1rem;
+      text-align: center;
+  
+      &-pending {
+        background-color: $clr-pending;
+        color: $clr-pending-font;
+      }
+  
+      &-paid {
+        background-color: $clr-paid;
+        color: $clr-paid-font;
+      }
+  
+      &-unpaid {
+        background-color: $clr-unpaid;
+        color: $clr-unpaid-font;
+      }
+    }
+  
+    .amount {
+      text-align: right;
+    }
+  
+    //Color alternating rows
+    tr:nth-child(even) {
+      background-color: $clr-gray150;
+    }
+  }

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html style="font-family: 'Open Sans', sans-serif !important; 
+font-family: 'Raleway', sans-serif !important;">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Raleway:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-typescript icon'></i>
+      <div class="logo_name">Manager</div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <ul class="nav-list ps-0">
+      <li>
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search..." />
+        <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-grid-alt"></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-user"></i>
+          <span class="links_name">User</span>
+        </a>
+        <span class="tooltip">User</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-chat"></i>
+          <span class="links_name">Messages</span>
+        </a>
+        <span class="tooltip">Messages</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-pie-chart-alt-2"></i>
+          <span class="links_name">Analytics</span>
+        </a>
+        <span class="tooltip">Analytics</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-folder"></i>
+          <span class="links_name">File Manager</span>
+        </a>
+        <span class="tooltip">Files</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-cart-alt"></i>
+          <span class="links_name">Order</span>
+        </a>
+        <span class="tooltip">Order</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-heart"></i>
+          <span class="links_name">Saved</span>
+        </a>
+        <span class="tooltip">Saved</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-cog"></i>
+          <span class="links_name">Setting</span>
+        </a>
+        <span class="tooltip">Setting</span>
+      </li>
+      <li class="profile">
+        <div class="profile-details">
+          <img src="/assets/images/avatar.jpg" alt="profileImg" />
+          <div class="name_job">
+            <div class="name">An Huyên</div>
+            <div class="job">FE - Developer</div>
+          </div>
+        </div>
+        <i class="bx bx-log-out" id="log_out"></i>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <div class="d-flex justify-content-between container">
+      <div class="text">Users</div>
+      <button id="btnAdd" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        class="btnCustom align-self-center">Add User</button>
+    </div>
+    <div class="container">
+      <table id="table" class="w-100">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th class="m-0 p-3">
+              <div class="dropdown">
+                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Loại
+                </button>
+                <ul class="dropdown-menu typePS" style="min-width: fit-content;">
+                  <li data-v="student" class="dropdown-item" style="font-size: 0.8rem;">Sinh viên</li>
+                  <li data-v="emloyee" class="dropdown-item" style="font-size: 0.8rem;">Giảng viên</li>
+                  <li data-v="customer" class="dropdown-item" style="font-size: 0.8rem;">Khách hàng</li>
+                  <li data-v="all" class="dropdown-item" style="font-size: 0.8rem;">Tất cả</li>
+                </ul>
+              </div>
+            </th>
+            <th class="m-0 p-3">
+              <div class="dropdown">
+                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Tên
+                </button>
+                <ul class="dropdown-menu typeName" style="min-width: fit-content;">
+                  <li data-n="0" class="dropdown-item" style="font-size: 0.8rem;">A-Z</li>
+                  <li data-n="1" class="dropdown-item" style="font-size: 0.8rem;">Z-A</li>
+                </ul>
+              </div>
+            </th>
+            <th>Địa chỉ</th>
+            <th>Email</th>
+            <th>Điểm TB</th>
+            <th>Lương</th>
+            <th>Công ty</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <!-- <tr>
+            <td><a href="#">INV__1001</a></td>
+            <td>Paragon</td>
+            <td>1/5/2021</td>
+            <td>
+              <p class="status status-unpaid">Unpaid</p>
+            </td>
+            <td class="amount">$520.18</td>
+          </tr>
+          <tr>
+            <td><a href="#">INV__1002</a></td>
+            <td>Sonic</td>
+            <td>1/4/2021</td>
+            <td>
+              <p class="status status-paid">Paid</p>
+            </td>
+            <td class="amount">$415.25</td>
+          </tr>
+          <tr>
+            <td><a href="#">INV__1003</a></td>
+            <td>Innercircle</td>
+            <td>1/2/2021</td>
+            <td>
+              <p class="status status-pending">Pending</p>
+            </td>
+            <td class="amount">$1324.84</td>
+          </tr>
+          <tr>
+            <td><a href="#">INV__1004</a></td>
+            <td>Varsity Plus</td>
+            <td>12/30/2020</td>
+            <td>
+              <p class="status status-pending">Pending</p>
+            </td>
+            <td class="amount">$998.26</td>
+          </tr>
+          <tr>
+            <td><a href="#">INV__1005</a></td>
+            <td>Highlander</td>
+            <td>12/18/2020</td>
+            <td>
+              <p class="status status-paid">Paid</p>
+            </td>
+            <td class="amount">$1152.35</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Người dùng</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3 needs-validation form1" id="form1" novalidate>
+            <div class="">
+              <label for="name" class="form-label">Tên</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên vào trường này"
+                required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <span class="invalid-feedback" id="spanName" style="display: none;"></span>
+            </div>
+            <div class="">
+              <label for="address" class="form-label">Địa chỉ</label>
+              <input type="text" class="form-control" id="address" name="address"
+                placeholder="Nhập địa chỉ vào trường này" required>
+              <div class="valid-feedback">
+                Địa chỉ hợp lệ.
+              </div>
+              <div class="invalid-feedback">
+                Vui lòng nhập trường này!
+              </div>
+              <span class="invalid-feedback" id="spanAddress" style="display: none;"></span>
+            </div>
+            <div class="">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" class="form-control" id="email" name="email" placeholder="Nhập email vào trường này"
+                required>
+              <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
+              <span class="invalid-feedback" id="spanEmail" style="display: none;"></span>
+            </div>
+            <div class="mt-0" id="studentBlock" style="display: none;">
+              <div class="">
+                <label for="math" class="form-label mt-3">Toán</label>
+                <input type="text" class="form-control" id="math" name="math" placeholder="Nhập điểm môn Toán"
+                  required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              <span class="invalid-feedback" id="spanMath" style="display: none;"></span>
+              </div>
+              <div class="">
+                <label for="physical" class="form-label mt-3">Lý</label>
+                <input type="text" class="form-control" id="physical" name="physical" placeholder="Nhập điểm môn Lý"
+                  required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              <span class="invalid-feedback" id="spanPhysical" style="display: none;"></span>
+              </div>
+              <div class="">
+                <label for="chemistry" class="form-label mt-3">Hóa</label>
+                <input type="text" class="form-control" id="chemistry" name="chemistry" placeholder="Nhập điểm môn Hóa"
+                  required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              <span class="invalid-feedback" id="spanChemistry" style="display: none;"></span>
+              </div>
+            </div>
+            <div class="mt-0" id="emloyeeBlock" style="display: none;">
+              <div class="">
+                <label for="wage" class="form-label mt-3">Lương/ Ngày</label>
+                <input type="text" class="form-control" id="wage" name="wage" placeholder="Nhập lương / ngày"
+                  required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              <span class="invalid-feedback" id="spanWage" style="display: none;"></span>
+              </div>
+              <div class="">
+                <label for="workday" class="form-label mt-3">Ngày làm việc</label>
+                <input type="text" class="form-control" id="workday" name="workday" placeholder="Nhập ngày làm việc"
+                  required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              <span class="invalid-feedback" id="spanWorkday" style="display: none;"></span>
+              </div>
+            </div>
+            <div class="mt-0" id="customerBlock" style="display: none;">
+              <div class="" >
+                <label for="company" class="form-label mt-3">Công ty</label>
+                <input type="text" class="form-control" id="company" name="company" placeholder="Nhập công ty vào trường này"
+                  required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              <span class="invalid-feedback" id="spanCompany" style="display: none;"></span>
+              </div>
+              <div class="">
+                <label for="VAT" class="form-label mt-3">Hóa đơn giá trị</label>
+                <input type="text" class="form-control" id="VAT" name="VAT" placeholder="Nhập giá trị hóa đơn vào trường này"
+                  required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              <span class="invalid-feedback" id="spanVAT" style="display: none;"></span>
+              </div>
+              <div class="">
+                <label for="judge" class="form-label mt-3">Đánh giá</label>
+                <input type="text" class="form-control" id="judge" name="judge" placeholder="Vui lòng cho đánh giá"
+                  required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              <span class="invalid-feedback" id="spanJudge" style="display: none;"></span>
+              </div>
+            </div>
+            <div class="">
+              <label for="selectType" class="form-label">Loại</label>
+              <select name="typePerson" class="form-select" id="selectType" required onchange="selectTypePerson(this)">
+                <option selected disabled value="">Chọn...</option>
+                <option value="student">Học viên</option>
+                <option value="emloyee">Giảng viên</option>
+                <option value="customer">Khách hàng</option>
+              </select>
+              <span class="invalid-feedback" id="spanTypePerson" style="display: none;"></span>
+              <div class="invalid-feedback">
+                Please select a valid state.
+              </div>
+            </div>
+            <div class="">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Đồng ý với Điều khoản và Quy định
+                </label>
+                <div class="invalid-feedback">
+                  Bạn phải đồng ý trước khi xác nhận.
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button id="btnAddUser" class="my-3 mx-1 btn btn-primary" type="button">Thêm</button>
+              <button id="btnUpdateUser" class="my-3 mx-1 btn btn-primary" type="button">Lưu</button>
+              <button id="btnClose" type="button" class="my-3 mx-1 btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="controllers/main.js"></script>
+
+</body>
+
+</html>
